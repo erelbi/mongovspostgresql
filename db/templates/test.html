@@ -1,0 +1,230 @@
+
+<!-- bootsrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css"/>
+ <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
+<!-- bootsrap -->
+
+<!-- PAGE -->
+<div class="container">
+    <div class="row">
+    <div class="col">
+  
+      <article>
+        <h1><img width="250" height="100" src="http://assets.stickpng.com/images/58481021cef1014c0b5e494b.png"></h1>
+        <hr>
+        <form id="mongosave" action="/" method="post" >
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="mongoname" aria-describedby="nameHelp" placeholder="NAME">
+              <small id="nameHelp" class="form-text text-muted">Bir isim gerek.</small>
+            </div>
+            <div class="form-group">
+                <label for="surname">SurName</label>
+                <input type="text" class="form-control" id="mongosurname" aria-describedby="surnameHelp" placeholder="Surname">
+                <small id="surnameHelp" class="form-text text-muted">Bir soy-isim gerek.</small>
+              </div>
+            <div class="form-group">
+              <label for="year">Year</label>
+              <input type="number" class="form-control" id="mongoyear" placeholder="1773">
+              <small id="yearHelp" class="form-text text-muted">Bir yıl gerek.</small>
+            </div>
+            <div class="form-group">
+                <label for="school">School</label>
+                <input type="text" class="form-control" id="mongoschool" aria-describedby="surnameHelp" placeholder="Mekteb-i Bahriye-i Şahane">
+                <small id="school" class="form-text text-muted">Bir okul gerek.</small>
+              </div>
+           
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+          </form>
+          <hr>
+          <table id="mongotable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Year</th>
+                    <th>School</th>
+                   
+                </tr>
+            </thead>
+            {% for  item in mongo %}
+            <tbody>
+                <tr>
+                    <td onclick="DeleteRow('{{item.id}}','mongo')">{{item.id}} </td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.surname}}</td>
+                    <td>{{item.year}}</td>
+                    <td>{{item.school}}</td>
+                
+                </tr>
+            </tbody>
+            {%endfor%}
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Year</th>
+                    <th>School</th>
+                </tr>
+            </tfoot>
+        </table>
+      </article>
+  
+</div>
+<div class="col">
+  
+      <article>
+        <h1>PostgreSQL  <img width="100" height="100" src="https://wiki.postgresql.org/images/9/9a/PostgreSQL_logo.3colors.540x557.png" /> </h1>
+        <hr>
+        <form id="postgresave" action="/" method="post">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="postgrename" aria-describedby="nameHelp" placeholder="NAME">
+              <small id="nameHelp" class="form-text text-muted">Bir isim gerek.</small>
+            </div>
+            <div class="form-group">
+                <label for="surname">SurName</label>
+                <input type="text" class="form-control" id="postgresurname" aria-describedby="surnameHelp" placeholder="Surname">
+                <small id="surnameHelp" class="form-text text-muted">Bir soy-isim gerek.</small>
+              </div>
+            <div class="form-group">
+              <label for="year">Year</label>
+              <input type="number" class="form-control" id="postgreyear" placeholder="1773">
+              <small id="yearHelp" class="form-text text-muted">Bir yıl gerek.</small>
+            </div>
+            <div class="form-group">
+                <label for="school">School</label>
+                <input type="text" class="form-control" id="postgreschool" aria-describedby="surnameHelp" placeholder="Mekteb-i Bahriye-i Şahane">
+                <small id="school" class="form-text text-muted">Bir okul gerek.</small>
+              </div>
+           
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+          </form>
+          <hr>
+          <table id="postgretable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Year</th>
+                    <th>School</th>
+                   
+                </tr>
+            </thead>
+            {% for  item in postgre %}
+            <tbody>
+                <tr>
+                    <td onclick="DeleteRow('{{item.id}}','postgesql')">{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.surname}}</td>
+                    <td>{{item.year}}</td>
+                    <td>{{item.school}}</td>
+                
+                </tr>
+            </tbody>
+            {%endfor%}
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Year</th>
+                    <th>School</th>
+                </tr>
+            </tfoot>
+        </table>
+    
+      </article>
+    </div>
+   
+</div>
+</div>
+<!-- PAGE -->
+<!-- <SCRIPT> -->
+ <script>
+    var  mongo = $('#mongosave');
+    var  postgresql = $('#postgresave') 
+    var token = '{{csrf_token}}';
+
+       mongo.submit(function (e) {
+   
+        e.preventDefault();
+        
+        $.ajax({
+            headers: {"X-CSRFToken": token},
+            type: mongo.attr('method'),
+            url: mongo.attr('action'),
+            data: {'type':'mongo','name':document.getElementById('mongoname').value,'surname':document.getElementById('mongosurname').value,'year':document.getElementById('mongoyear').value,'school':document.getElementById('mongoschool').value},
+            success: function (resp) {
+                console.log('Submission was successful.');
+                alert("MONGODB Kayıt Süresi"+resp['time'])
+                window.location.reload();
+                
+            },
+            error: function (resp) {
+                console.log('An error occurred.');
+            
+            },
+        })
+    });
+
+    postgresql.submit(function (e) {
+   
+   e.preventDefault();
+   
+   $.ajax({
+       headers: {"X-CSRFToken": token},
+       type: postgresql.attr('method'),
+       url: postgresql.attr('action'),
+       data: {'type':'postgresql','name':document.getElementById('postgrename').value,'surname':document.getElementById('postgresurname').value,'year':document.getElementById('postgreyear').value,'school':document.getElementById('postgreschool').value},
+       success: function (resp) {
+                console.log('Submission was successful.');
+                alert("POSTGRESQL Kayıt Süresi"+resp['time'])
+                window.location.reload();
+                
+            },
+            error: function (resp) {
+                console.log('An error occurred.');
+            
+            },
+        })
+    });
+
+
+    $('#mongoTable').dataTable({
+        pageSize: 5
+    });
+
+
+    $('#postgreTable').dataTable({
+        pageSize: 5
+    });
+
+    function DeleteRow(val,type){
+        $.ajax({
+            headers: {"X-CSRFToken": token},
+            type: "POST",
+            url: "/remove",
+            data: {'type':type,'value':val},
+            success: function (resp) {
+                console.log('Submission was successful.');
+                alert(type+"Silme Süresi "+resp['time'])
+                window.location.reload();
+                
+            },
+            error: function (resp) {
+                console.log('An error occurred.');
+            
+            },
+        })
+    }
+
+ </script>
+ <!-- <SCRIPT> -->
