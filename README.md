@@ -11,3 +11,6 @@ Postgresql mi MongoDB mi?
 djongo==1.3.6
 psycopg2==2.9.1
 Bağlantı kütüphanleri Kullanıldı.
+
+## Video
+[![Which is Fast?](http://img.youtube.com/vi/n7Ly7zS6aVA/0.jpg)](http://www.youtube.com/watch?v=n7Ly7zS6aVA "Video Title")
